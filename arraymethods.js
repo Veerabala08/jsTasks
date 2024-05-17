@@ -142,12 +142,34 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
-const book = getBook(3);
+const book = getBook(2);
 book;
+const { genres, titles, author } = book;
+// rest operator 
+const [primary, secondary, ...ohter] = genres
+console.log(genres)
+console.log(primary, secondary, ohter)
 
+const newarray  = ["horror", genres]
+newarray
+// spread operator
+const secondnew = ["fun", ...genres]
+secondnew
+//overriding existing property using spread
+const updatedbook = {...book, genres: ["horror"],overridedby : "vb"}
+
+updatedbook
 const title = data.map(book=>book.title);
 title
 
+// sort
+const list = [1,3,9,5,5,6,7,8]
+const odlist = list.slice().sort((a,b) => a-b)
+list
+odlist
+
+sortpage = data.slice().sort((a,b)=> a.pages-b.pages)
+sortpage
 data.forEach(book=> console.log(book.author));
 
 const topR = data.filter(book => book.hasMovieAdaptation == true)
@@ -159,8 +181,8 @@ totalpages
 let longTitle = data.reduceRight((acu,book) => acu+book.title,"")
 longTitle
 
-let genres = data.some((book)=> book.genres.includes("Horror") == false);
-genres
+// let genres = data.some((book)=> book.genres.includes("Horror") == false);
+// genres
 
 let pages = data.every(book=> book.pages > 223 )
 pages
