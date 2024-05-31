@@ -7,22 +7,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Nexcent</title>
     <style type="text/css">
         body,
         button {
             font-family: inter;
             background-color: rgba(255, 255, 255, 1);
             color: rgba(38, 50, 56, 1);
+            margin: 0;
+            padding: 0;
         }
 
         .navbar {
             height: 84px;
             display: flex;
+            position: relative;
             flex-direction: row;
             justify-content: space-evenly;
             align-items: center;
             background-color: rgb(245, 247, 250);
+        }
+
+        .responsive-nav {
+            position: absolute;
+            top: 10px;
+            right: 0;
+            background-color: rgb(245, 247, 250);
+
+
         }
 
         .nav_list {
@@ -54,6 +66,109 @@
             font-weight: 500
         }
 
+        /* ########## */
+        .menu {
+            display: none;
+        }
+
+        #menu-btn:checked~.menu {
+            display: flex;
+            margin-bottom: 30px;
+            flex-direction: column;
+            row-gap: 20px;
+            align-items: center;
+
+
+        }
+
+        @media (max-width:800px) {
+            .nav_list {
+                display: none;
+
+            }
+
+            .log-btn {
+                display: none;
+            }
+
+            .navbar {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+        }
+
+
+        .menu-icon {
+            cursor: pointer;
+            display: inline-block;
+            float: right;
+            padding: 28px 20px;
+            position: relative;
+            user-select: none;
+        }
+
+        .menu-icon .navicon {
+            background: #333;
+            display: block;
+            height: 2px;
+            position: relative;
+            transition: background .2s ease-out;
+            width: 18px;
+        }
+
+        .menu-icon .navicon:before,
+        .menu-icon .navicon:after {
+            background: #333;
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            transition: all .2s ease-out;
+            width: 100%;
+        }
+
+        .menu-icon .navicon:before {
+            top: 5px;
+        }
+
+        .menu-icon .navicon:after {
+            top: -5px;
+        }
+
+        .menu-btn {
+            display: none;
+        }
+
+        .menu-btn:checked~.menu-icon .navicon {
+            background: transparent;
+        }
+
+        .menu-btn:checked~.menu-icon .navicon:before {
+            transform: rotate(-45deg);
+        }
+
+        .menu-btn:checked~.menu-icon .navicon:after {
+            transform: rotate(45deg);
+        }
+
+        .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+        .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+            top: 0;
+        }
+
+        @media (min-width:800px) {
+            .menu {
+                display: none;
+            }
+
+            .navicon,
+            .menu-btn,
+            .menu-icon {
+                display: none;
+            }
+        }
+
         .hero {
             background-color: rgb(245, 247, 250);
             padding-bottom: 5px;
@@ -67,6 +182,7 @@
             align-items: center;
             gap: 84px;
             padding: 1em;
+            min-height: 500px;
 
         }
 
@@ -102,24 +218,193 @@
             border-radius: 60%;
             display: inline-block;
         }
+
         .activedot {
-  height: 7px;
-  width: 7px;
-  background-color:  rgba(76, 175, 79, 1);
-  border-radius: 60%;
-  display: inline-block;
-}
-.client-logo{
-    display: flex;
-    justify-content: space-around;
-    
-}
-.client-section {
-    font-weight: bold;
-}
+            height: 7px;
+            width: 7px;
+            background-color: rgba(76, 175, 79, 1);
+            border-radius: 60%;
+            display: inline-block;
+        }
 
+        .client-logo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .clients-section {
+            width: 90%;
+            margin-inline: auto;
+            align-items: center;
+            height: auto;
+            min-height: 180px;
+            padding-bottom: 40px;
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 300px);
+            justify-content: space-around;
+            align-items: center;
+            padding: 15px;
+            gap: 10px;
+        }
+
+        .community-grid-items {
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px -4px lightblue;
+
+        }
+
+        @media (max-width: 900px) {
+            .community-grid {
+                grid-template-columns: repeat(1, 300px);
+                align-items: center;
+            }
+
+            /* .item {
+      width: 80%; /* Adjust width as per your design 
+    } */
+        }
+
+        .community-icon {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .unseen {
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            column-gap: 84px;
+            padding: 1em
+        }
+
+        .unseen-text-sec {
+            max-width: 600px;
+            padding: 1em;
+        }
+
+        .unseen-text {
+            font-size: xx-large;
+            font-weight: 600;
+        }
+
+        .counts {
+            display: grid;
+            grid-template-columns: repeat(2, 200px);
+        }
+
+        .count-item {
+            display: grid;
+            grid-template-columns: repeat(2, 100px);
+        }
+
+        .align-icon {
+            margin-top: 14px;
+            margin-left: 20px;
+        }
+
+        .number {
+            font-weight: bolder;
+        }
+
+        .tesla {
+            background-color: rgb(245, 247, 250);
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            column-gap: 54px;
+            padding: 1em
+        }
+
+        .tesla-logo {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .client-updates {
+            display: grid;
+            grid-template-rows: 1fr, 1fr;
+            justify-content: center;
+        }
+
+
+        .client-flex {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding-inline: 10px;
+            gap: 15px;
+        }
+
+        @media screen and (max-width: 890px) {
+            .client-flex {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding-inline: 10px;
+                gap: 15px;
+            }
+        }
+
+        .client-img {
+            grid-row: 1/5;
+            grid-column: 1/2;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .client-uptext {
+            grid-row: 4/6;
+            grid-column: 1/2;
+            display: flex;
+            margin-left: 40px;
+            max-width: 250px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px -4px lightblue;
+            background-color: aliceblue;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 10px;
+            padding-inline: 20px;
+        }
+
+        input[type=email] {
+            width: 60%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            margin-left: 37px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(73, 79, 82, 0.342);
+            color: white;
+        }
+
+        .footer-item:nth-child(1) {
+            grid-column: span 2;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .footer-item:nth-child(1) {
+                grid-column: span 1;
+            }
+        }
     </style>
-
 </head>
 
 
@@ -139,21 +424,38 @@
                 <a class="nav_lists">Testimonial</a>
                 <a class="nav_lists">FAQ</a>
             </ul>
-            <div>
+            <div class="log-btn">
                 <button class="login">Login</button>
                 <button>Signup</button>
+            </div>
+
+            <div class="responsive-nav">
+                <input class="menu-btn" type="checkbox" id="menu-btn" />
+                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                <ul class="menu">
+                    <a class="nav_lists">Home</a>
+                    <a class="nav_lists">Service</a>
+                    <a class="nav_lists">Feature</a>
+                    <a class="nav_lists">Product</a>
+                    <a class="nav_lists">Testimonial</a>
+                    <a class="nav_lists">FAQ</a>
+                    <button class="login">Login</button>
+                    <button>Signup</button>
+
+                </ul>
+
             </div>
         </nav>
         <div class="hero">
             <div class="hero1st">
                 <section class="hero-text-sec">
                     <p class="hero-text"><span class="large-text">Lesson and insights<br>
-                            <span class="colored-text"> from 8 years</span><br></span>
+                            <span class="colored-text"> from 8 years</span><br></span></p>
                     <p class="hero-text-small">where to grow your business as a photographer: site or social media?</p>
                     <button>Register</button>
                 </section>
                 <section class="hero-image-sec">
-                    <img src="/assets/Illustration.png">
+                    <img style=" object-fit: cover;" src="/assets/Illustration.png">
                 </section>
             </div>
             <div style="text-align:center">
@@ -163,20 +465,240 @@
             </div>
         </div>
         <section class="clients-section">
-            <p style="text-align: center; font-weight: bolder; font-size: 30px;">Our Clients</p>
-            <p style="text-align: center;">We have been working with some Fortune 500+ clients</p>
+            <p style="text-align: center; font-weight: bolder; margin-bottom: -5px ; font-size:xx-large;">Our Clients
+            </p>
+            <p style="text-align: center; margin-bottom: 35px;">We have been working with some Fortune 500+ clients</p>
             <div class="client-logo">
-                <img src = "assets/logo1.png" alt="client-logo" width="33px" height="33px">
-                <img src = "assets/logo2.png" alt="client-logo" width="33px" height="33px">
-                <img src = "assets/logo3.png" alt="client-logo" width="33px" height="33px">
-                <img src = "assets/logo4.png" alt="client-logo" width="33px" height="33px">
-                <img src = "assets/logo5.png" alt="client-logo" width="33px" height="33px">
-                <img src = "assets/logo6.png" alt="client-logo" width="33px" height="33px">
-                <img src = "assets/logo7.png" alt="client-logo" width="33px" height="33px">
+                <img src="assets/logo1.png" alt="client-logo" width="35px" height="30px">
+                <img src="assets/logo2.png" alt="client-logo" width="35px" height="30px">
+                <img src="assets/logo3.png" alt="client-logo" width="35px" height="30px">
+                <img src="assets/logo4.png" alt="client-logo" width="35px" height="30px">
+                <img src="assets/logo5.png" alt="client-logo" width="35px" height="30px">
+                <img src="assets/logo6.png" alt="client-logo" width="35px" height="30px">
+                <img src="assets/logo7.png" alt="client-logo" width="35px" height="30px">
+            </div>
+        </section>
+        <section style="min-height: 200px; align-content: center;">
+            <p style="text-align: center; font-size:xx-large; font-weight: bold;">Manage your entire community <br>in a
+                single system</p>
+            <p style="text-align: center; ">Who is Nextcent suitable for?</p>
+        </section>
+        <section class="community-grid">
+            <div class="community-grid-items">
+                <img src="/assets/Icon1.png" alt="mem-png" class="community-icon">
+                <p style="text-align: center; font-size: x-large; font-weight: 800;">Membership Organisations</p>
+                <p style="text-align: center;">Our membership management software provides full automations of
+                    membership renewals and payments</p>
+            </div>
+            <div class="community-grid-items">
+                <img src="/assets/Icon2.png" alt="mem-png" class="community-icon">
+                <p style="text-align: center; font-size: x-large; font-weight: 800;">National <br>Associations</p>
+                <p style="text-align: center;">Our membership management software provides full automations of
+                    membership renewals and payments</p>
+            </div>
+            <div class="community-grid-items">
+                <img src="/assets/Icon3.png" alt="mem-png" class="community-icon">
+                <p style="text-align: center; font-size: x-large; font-weight: 800;">Clubs And <br>Groups</p>
+                <p style="text-align: center;">Our membership management software provides full automations of
+                    membership renewals and payments</p>
             </div>
         </section>
     </header>
-    
+
+    <div>
+        <div class="unseen">
+            <section class="hero-image-sec">
+                <img style=" object-fit: cover;" src="/assets/Illustration2.png">
+            </section>
+            <section class="unseen-text-sec">
+                <p class="unseen-text">The unseen of spending three years at Pixelgrade</p>
+                <p class="unseen-text-small">Lorem ipsum Lorem ipsum dol
+                    or sit amet consectetur adipisicing elit. Ab eaque
+                    sunt soluta voluptates, rem tenetur qui debitis optio beatae, commodi corporis dolore iure eligendi
+                    sit dicta praesentium consequuntur sed unde! dolor sit, amet consectetur adipisicing elit.!</p>
+                <button>Learn More</button>
+            </section>
+        </div>
+        <div style="background-color: rgb(245, 247, 250); display: flex; flex-wrap: wrap; justify-content: center;min-height: 290px;
+        align-items: center;">
+            <div>
+                <p style="font-size: xx-large; font-weight: 600;">
+                    Helping a local<br><span style="color:  rgba(76, 175, 79, 1);">business reinvent itself</span>
+                </p>
+                <p>We reached here with our hardwork and dedication</p>
+            </div>
+
+            <div class="counts">
+                <div class="count-item">
+                    <img class="align-icon" src="/assets/member.png">
+                    <div>
+                        <div>
+                            <p><span class="number">2,245,341</span><br>Members</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="count-item">
+                    <img class="align-icon" src="/assets/clubs.png">
+                    <div>
+                        <p><span class="number">2,245,341</span><br>Payments</p>
+                    </div>
+                </div>
+                <div class="count-item">
+                    <img class="align-icon" src="/assets/booking.png">
+                    <div>
+                        <p><span class="number">2,245,341</span><br>Event Booking</p>
+                    </div>
+                </div>
+                <div class="count-item">
+                    <img class="align-icon" src="assets/payments.png">
+                    <div>
+                        <p><span class="number">2,245,341</span><br>Clubs</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div></div>
+        <div class="unseen">
+            <section class="hero-image-sec">
+                <img src="/assets/pana.png">
+            </section>
+            <section class="unseen-text-sec">
+                <p class="unseen-text">How to design your site footer like<br> we did</p>
+                <p class="unseen-text-small">Lorem ipsum Lorem ipsum dol
+                    or sit amet consectetur adipisicing elit. Ab eaque
+                    sunt soluta voluptates, rem tenetur Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Incidunt,
+                    aliquid cum, voluptate quaerat odit ducimus, nobis ipsam sit ullam ex voluptatum autem dolores
+                    voluptas
+                    in error
+                    ! Repudiandae dicta dolor voluptas!qui debitis optio beatae, commodi corporis dolore iure eligendi
+                    sit dicta praesentium consequuntur sed unde! dolor sit, amet consectetur adipisicing elit.!</p>
+                <button>Learn More</button>
+            </section>
+        </div>
+        <div class="tesla">
+            <section class="hero-image-sec">
+                <img src="/assets/image 9.png" alt="tesla image">
+            </section>
+            <section class="unseen-text-sec">
+                <p style="font-weight: 500;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae eum
+                    neque
+                    dolore harum laborum velit iure.
+                    Quisquam rerum eaque voluptates, minima facilis omnis ducimus, consequuntur rem nulla quasi in
+                    soluta!.
+                    Lorem ipsum
+                    adipisicing elit. Quisquam asperiores, repellat eum molestiae quasi veniam pariatur nihil recusandae
+                    totam deleniti
+                    soluta blanditiis non, et, modi assumenda. Dolor inventore possimus quibusdam?</p>
+                <span style="color:  rgba(76, 175, 79, 1); font-size: large; font-weight: bold;">Tim Smith</span>
+                <p>British Dragon Boat Racing Association</p>
+                <div class="tesla-logo">
+                    <img src="assets/logo1.png" alt="client-logo" width="35px" height="30px">
+                    <img src="assets/logo2.png" alt="client-logo">
+                    <img src="assets/logo3.png" alt="client-logo">
+                    <img src="assets/logo4.png" alt="client-logo">
+                    <img src="assets/logo5.png" alt="client-logo">
+                    <img src="assets/logo6.png" alt="client-logo">
+                    <img src="assets/logo7.png" alt="client-logo">
+                    <p style="color:  rgba(76, 175, 79, 1); font-weight: 600; display: flex; align-items: center;">Meet
+                        all
+                        customers<span style="margin-top: 5px;"><img src="assets/Right.png"></span></p>
+                </div>
+            </section>
+        </div>
+        <section class="clients-section">
+            <p style="text-align: center; font-weight: bolder; margin-bottom: -5px ; font-size:xx-large;">Caring is the
+                new
+                Market</p>
+            <p style="text-align: center; margin-bottom: 35px; max-width: 50%; margin-inline: auto;">The Nexcent blog is
+                the
+                best place to read about the latest
+                membership insights trends and more. See who'x joining the community, read about how our community are
+                increasing their
+                membership income and lot's more</p>
+            <div class=client-flex>
+                <div class="client-updates">
+                    <img class=client-img src="/assets/image 18.png" alt="image1">
+                    <div class="client-uptext">
+                        <p style="text-align: center;">Creating Streamlined Safeguarding Process with OneRen</p>
+                        <p style="color:  rgba(76, 175, 79, 1); font-weight: 600; display: flex; align-items: center;">
+                            ReadMore<span style="margin-top: 5px;"><img src="assets/Right.png"></span></p>
+                    </div>
+                </div>
+                <div class="client-updates">
+                    <img class=client-img src="/assets/image 19.png" alt="image1">
+                    <div class="client-uptext">
+                        <p style="text-align: center;">What are your safeguarding responsibilities and how can you
+                            manage them</p>
+                        <p style="color:  rgba(76, 175, 79, 1); font-weight: 600; display: flex; align-items: center;">
+                            ReadMore<span style="margin-top: 5px;"><img src="assets/Right.png"></span></p>
+                    </div>
+                </div>
+                <div class="client-updates">
+                    <img class=client-img src="/assets/image 20.png" alt="image1">
+                    <div class="client-uptext">
+                        <p style="text-align: center;">Revamping the membership model with triathlon <br>Australia</p>
+                        <p style="color:  rgba(76, 175, 79, 1); font-weight: 600; display: flex; align-items: center;">
+                            ReadMore<span style="margin-top: 5px;"><img src="assets/Right.png"></span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div style="margin-inline:auto; padding-bottom: 50px; background-color: rgb(245, 247, 250); padding-top: 10px;">
+            <p style="text-align: center; font-size: 55px; font-weight: 600;">Pellentesque suscipit<br>fringilla libero
+                eu.</p>
+            <button style="margin-inline:auto ; display: flex; align-items: center;">Get a Demo&nbsp;&nbsp;<span
+                    style="margin-top: 0;"><img src="assets/Vector.png"></span> </button>
+        </div>
+    </div>
 </body>
+
+<footer
+    style="min-height: 265px;color:white; background-color: rgb(38, 50, 56); display: flex; justify-content: center; align-items: center; padding: 20px;">
+    <div
+        style="max-width: 85%; margin-inline: auto;display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:20px;justify-content: center; align-content: center;">
+        <div class="footer-item">
+            <img style="margin-left:37px;  margin-top:7px;" src="assets/Logo.png">
+            <div style="padding-top:15px; padding-bottom: 15px; margin-left:37px; margin-top:7px;">
+                <p style="font-size: small;">Copyright 2020 Nexcent ltd.</p>
+                <p style="font-size: small;">All rights reserved</p>
+            </div>
+            <div
+                style=" margin-left:37px; margin-top:7px; display: flex; justify-content: space-between; max-width: 200px;">
+                <img src="assets/Social Icons1.png">
+                <img src="assets/Social Icons2.png">
+                <img src="assets/Social Icons3.png">
+                <img src="assets/Social Icon4.png">
+            </div>
+        </div>
+        <div class="footer-item">
+            <p style="margin-left:37px; margin-top:7px;">Company</p>
+            <ul
+                style="font-size:small; display: flex; flex-direction: column ; justify-content: space-between; gap:10px; list-style-type: none;">
+                <li>About us</li>
+                <li>Blog</li>
+                <li>Contact us</li>
+                <li>Pricing</li>
+                <li>Testimonials</li>
+            </ul>
+        </div>
+        <div class="footer-item">
+            <p style="margin-left:37px;  margin-top:7px;">Support</p>
+            <ul
+                style="font-size:small; display: flex; flex-direction: column ; justify-content: space-between; row-gap:10px;  list-style-type:none">
+                <li>Help center</li>
+                <li>Terms of service</li>
+                <li>Legal</li>
+                <li>Privacy policy</li>
+                <li>Status</li>
+            </ul>
+        </div>
+        <div class="footer-item">
+            <p style="margin-left:37px; margin-top:7px;">Stay up to date</p>
+            <input type="email" placeholder="Your email address">
+        </div>
+    </div>
+</footer>
 
 </html>
