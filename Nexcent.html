@@ -81,10 +81,13 @@
 
         }
 
-        @media (max-width:800px) {
+        @media (max-width:878px) {
             .nav_list {
                 display: none;
 
+            }
+            .log-btn{
+                display: inline;none
             }
 
             .log-btn {
@@ -157,7 +160,7 @@
             top: 0;
         }
 
-        @media (min-width:800px) {
+        @media (min-width:879px) {
             .menu {
                 display: none;
             }
@@ -258,15 +261,19 @@
 
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 932px) {
             .community-grid {
                 grid-template-columns: repeat(1, 300px);
                 align-items: center;
             }
 
-            /* .item {
-      width: 80%; /* Adjust width as per your design 
-    } */
+        }
+        @media (max-width: 305px) {
+            .community-grid {
+                grid-template-columns: repeat(1, 200px);
+                align-items: center;
+            }
+
         }
 
         .community-icon {
@@ -298,6 +305,12 @@
             display: grid;
             grid-template-columns: repeat(2, 200px);
         }
+
+        @media screen and (max-width: 600px) {
+    .counts {
+        grid-template-columns: 1fr; 
+    }
+}
 
         .count-item {
             display: grid;
@@ -350,7 +363,7 @@
             gap: 15px;
         }
 
-        @media screen and (max-width: 890px) {
+        @media screen and (max-width: 932px) {
             .client-flex {
                 display: flex;
                 flex-direction: column;
@@ -365,7 +378,8 @@
             grid-row: 1/5;
             grid-column: 1/2;
             border-radius: 5px;
-            object-fit: cover;
+            width: 100%;
+            height: auto;
         }
 
         .client-uptext {
@@ -455,7 +469,7 @@
                     <button>Register</button>
                 </section>
                 <section class="hero-image-sec">
-                    <img style=" object-fit: cover;" src="/assets/Illustration.png">
+                    <img style="width: 100%; height: auto;" src="/assets/Illustration.png" alt="img 1">
                 </section>
             </div>
             <div style="text-align:center">
@@ -508,7 +522,7 @@
     <div>
         <div class="unseen">
             <section class="hero-image-sec">
-                <img style=" object-fit: cover;" src="/assets/Illustration2.png">
+                <img style="width: 100%; height: auto;" src="/assets/Illustration2.png">
             </section>
             <section class="unseen-text-sec">
                 <p class="unseen-text">The unseen of spending three years at Pixelgrade</p>
@@ -561,7 +575,7 @@
         <div></div>
         <div class="unseen">
             <section class="hero-image-sec">
-                <img src="/assets/pana.png">
+                <img style="width: 100%; height: auto;" src="/assets/pana.png">
             </section>
             <section class="unseen-text-sec">
                 <p class="unseen-text">How to design your site footer like<br> we did</p>
@@ -579,7 +593,7 @@
         </div>
         <div class="tesla">
             <section class="hero-image-sec">
-                <img src="/assets/image 9.png" alt="tesla image">
+                <img style="width: 100%; height: auto;" src="/assets/image 9.png" alt="tesla image">
             </section>
             <section class="unseen-text-sec">
                 <p style="font-weight: 500;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae eum
@@ -621,7 +635,7 @@
                 <div class="client-updates">
                     <img class=client-img src="/assets/image 18.png" alt="image1">
                     <div class="client-uptext">
-                        <p style="text-align: center;">Creating Streamlined Safeguarding Process with OneRen</p>
+                        <p style="text-align: center; font-weight: bold;">Creating Streamlined Safeguarding Process with OneRen</p>
                         <p style="color:  rgba(76, 175, 79, 1); font-weight: 600; display: flex; align-items: center;">
                             ReadMore<span style="margin-top: 5px;"><img src="assets/Right.png"></span></p>
                     </div>
@@ -629,7 +643,7 @@
                 <div class="client-updates">
                     <img class=client-img src="/assets/image 19.png" alt="image1">
                     <div class="client-uptext">
-                        <p style="text-align: center;">What are your safeguarding responsibilities and how can you
+                        <p style="text-align: center; font-weight: bold;">What are your safeguarding responsibilities and how can you
                             manage them</p>
                         <p style="color:  rgba(76, 175, 79, 1); font-weight: 600; display: flex; align-items: center;">
                             ReadMore<span style="margin-top: 5px;"><img src="assets/Right.png"></span></p>
@@ -638,7 +652,7 @@
                 <div class="client-updates">
                     <img class=client-img src="/assets/image 20.png" alt="image1">
                     <div class="client-uptext">
-                        <p style="text-align: center;">Revamping the membership model with triathlon <br>Australia</p>
+                        <p style="text-align: center; font-weight: bold;">Revamping the membership model with triathlon <br>Australia</p>
                         <p style="color:  rgba(76, 175, 79, 1); font-weight: 600; display: flex; align-items: center;">
                             ReadMore<span style="margin-top: 5px;"><img src="assets/Right.png"></span></p>
                     </div>
@@ -646,7 +660,7 @@
             </div>
         </section>
         <div style="margin-inline:auto; padding-bottom: 50px; background-color: rgb(245, 247, 250); padding-top: 10px;">
-            <p style="text-align: center; font-size: 55px; font-weight: 600;">Pellentesque suscipit<br>fringilla libero
+            <p style="text-align: center; word-wrap: break-word; font-size: 55px; font-weight: 600;">Pellentesque suscipit<br>fringilla libero
                 eu.</p>
             <button style="margin-inline:auto ; display: flex; align-items: center;">Get a Demo&nbsp;&nbsp;<span
                     style="margin-top: 0;"><img src="assets/Vector.png"></span> </button>
